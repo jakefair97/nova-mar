@@ -3,9 +3,9 @@
 </script>
 
 <template>
-
+<!-- Just need one element to display the lease -->
 </template>
 
-<style>
-
+<style scoped>
+/* styling to center the lease */
 </style>

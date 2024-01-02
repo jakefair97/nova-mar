@@ -57,10 +57,10 @@ const signInWithGoogle = () => {
 
     <div class="wrapper">
       <HelloWorld msg="Hi Mom!" /> -->
-
+<!-- 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-      </nav>
+      </nav> -->
     <!-- </div> -->
   </header>
 
