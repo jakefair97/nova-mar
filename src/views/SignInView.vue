@@ -4,9 +4,14 @@
 
 <template>
 <!-- simple username and password fields -->
-<form action="signin">
 
+
+
+
+
+<form action="signin">
   <div class="container">
+    <h1>Welcome! Please sign in</h1>
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
 
@@ -29,7 +34,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-form {border: 3px solid #3e3e3e;}
 
 .container{
   padding: 16px;
@@ -44,7 +48,6 @@ input[type=text], input[type=password] {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
   box-sizing: border-box;
 }
 
