@@ -5,10 +5,6 @@
 <template>
 <!-- simple username and password fields -->
 
-
-
-
-
 <form action="signin">
   <div class="container">
     <h1>Welcome! Please sign in</h1>

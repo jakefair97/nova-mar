@@ -26,26 +26,29 @@ import { firebaseApp } from './firebase';
 //     });
 // }
 
-const user = false;
+const user = true;
 
 </script>
 
 <template>
   <!-- implement v-if to only show the buttons if the user is logged in -->
-  
+  <RouterView v-if="this.$route.path=='/'"/>
   <div v-if="user" class="buttons" >
     <nav>
-      <RouterLink to ='/'>Pay Rent</RouterLink>
+      <RouterLink v-if="this.$route.path!=='/'" to="/">Home</RouterLink>
+
+      <RouterLink to ='/pay'>Pay Rent</RouterLink>
   
       <RouterLink to="/lease">View Lease</RouterLink>
   
-      <RouterLink to="/">Maintenance Request</RouterLink>
+      <RouterLink to="/maintenance">Maintenance Request</RouterLink>
   
-      <RouterLink to="/">Contact</RouterLink>
+      <RouterLink to="/contact">Contact</RouterLink>
     </nav>
 
   </div>
-  <RouterView />
+  <RouterView v-if="this.$route.path!=='/'"/>
+  
 </template>
 
 <style scoped>
@@ -63,6 +66,8 @@ nav {
   width: 100%;
   font-size: 25px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 nav a.router-link-exact-active {
