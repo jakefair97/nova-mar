@@ -1,19 +1,22 @@
 <script setup>
+  import { RouterLink, RouterView } from 'vue-router'
 
 </script>
 
 <template>
   <h1>Welcome user!</h1>
-  <div class="buttons">
-
-    <button>Pay Rent</button>
-
-    <button>View Lease</button>
-
-    <button>Maintenance Request</button>
-
-    <button>Contact</button>
-  </div>
+  <!-- <div class="buttons">
+    <nav>
+      <RouterLink to ='/'>Pay Rent</RouterLink>
+  
+      <RouterLink to="/lease">View Lease</RouterLink>
+  
+      <RouterLink to="/">Maintenance Request</RouterLink>
+  
+      <RouterLink to="/">Contact</RouterLink>
+      <RouterView/> 
+    </nav>
+  </div> -->
   
 </template>
 
