@@ -51,6 +51,14 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
+h1 {
+  color: white;
+  font-size: 30px;
+  background-color: gray;
+  width: 100%;
+  text-align: center;
+}
+
 button {
   align-self: center;
 }
