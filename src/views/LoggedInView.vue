@@ -4,20 +4,7 @@
 </script>
 
 <template>
-  <h1>Welcome user!</h1>
-  <!-- <div class="buttons">
-    <nav>
-      <RouterLink to ='/'>Pay Rent</RouterLink>
-  
-      <RouterLink to="/lease">View Lease</RouterLink>
-  
-      <RouterLink to="/">Maintenance Request</RouterLink>
-  
-      <RouterLink to="/">Contact</RouterLink>
-      <RouterView/> 
-    </nav>
-  </div> -->
-  
+  <h1>Welcome user!</h1>  
 </template>
 
 <style scoped>

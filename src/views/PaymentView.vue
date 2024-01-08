@@ -4,7 +4,7 @@
 
 <template>
   <!-- figure out how to use stripe and setup a payment screen -->
- 
+ <h1>Pay up!</h1>
 </template>
 
 <style scoped>

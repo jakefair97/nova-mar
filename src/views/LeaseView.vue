@@ -4,7 +4,7 @@
 
 <template>
 <!-- Just need one element to display the lease -->
-Your lease will be here
+<h1>Your lease will be here</h1>
 </template>
 
 <style scoped>

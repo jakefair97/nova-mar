@@ -1,5 +1,19 @@
 <script setup>
   // import Firebase functionality to handle the sign in event
+  import { getAuth, signInWithEmailAndPassword} from "firebase/auth"
+
+  import { useCurrentUser, useFirebaseAuth } from 'vuefire'
+
+const auth = useFirebaseAuth()
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed In
+    const user = userCredential.user;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
 </script>
 
 <template>
@@ -8,13 +22,13 @@
 <form action="signin">
   <div class="container">
     <h1>Welcome! Please sign in</h1>
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" id="email" name="email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
         
-    <button type="submit">Login</button>
+    <button type="submit" @click="signInWithEmailAndPassword(auth, email, psw)">Login</button>
   </div>
 
 </form>
