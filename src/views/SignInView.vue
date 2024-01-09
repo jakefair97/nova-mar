@@ -1,68 +1,40 @@
+<script>
+import { GoogleAuthProvider } from 'firebase/auth';
+export const googleAuthProvider = new GoogleAuthProvider();
+
+</script>
+
 <script setup>
-  // import Firebase functionality to handle the sign in event
-  import { firebaseApp } from '../firebase';
-  import { getAuth } from 'firebase/auth';
+// import Firebase functionality to handle the sign in event
+import { firebaseApp } from '../firebase';
+import { EmailAuthProvider, signInWithRedirect, getRedirectResult } from 'firebase/auth';
+import { onMounted } from 'vue';
 
-  import firebase from 'firebase/compat/app';
-  import * as firebaseui from 'firebaseui';
-  import 'firebaseui/dist/firebaseui.css';
 
-// Initialize the FirebaseUI Widget using Firebase.
-const ui = new firebaseui.auth.AuthUI(getAuth(firebaseApp));
-
-ui.start('#firebaseui-auth-container', {
-  signInOptions: [
-    {provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    requireDisplayName: false}
-  ],
-  // Other config options...
-});
+import { useFirebaseAuth } from 'vuefire'
 
 const auth = useFirebaseAuth()
-console.log(auth);
-const signIn = (email, password) => {
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed In
-    const user = userCredential.user;
+
+// const error = undefined
+function signInRedirect() {
+  signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
+    console.error('Failed signInRedirect', reason)
+    // error.value = reason
   })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });}
+}
 
+// onMounted(() => {
+//   getRedirectResult(auth).catch((reason) => {
+//     console.error('Failed redirect result', reason)
+//     // error.value = reason
+//   })
+// });
 
-  var uiConfig = {
-  callbacks: {
-    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-      // User successfully signed in.
-      // Return type determines whether we continue the redirect automatically
-      // or whether we leave that to developer to handle.
-      return true;
-    },
-    uiShown: function() {
-      // The widget is rendered.
-      // Hide the loader.
-      document.getElementById('loader').style.display = 'none';
-    }
-  },
-  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-  signInFlow: 'popup',
-  signInSuccessUrl: '<url-to-redirect-to-on-success>',
-  signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-  ],
-};
-
-ui.start('#firebaseui-auth-container', uiConfig);
 </script>
 
 <template>
 <!-- simple username and password fields -->
-<h1>Welcome! Please sign in</h1>
-<div id="firebaseui-auth-container"></div>
-<div id="loader">Loading...</div>
+
 <!-- <form action="signin">
   <div class="container">
     <h1>Welcome! Please sign in</h1>
@@ -76,6 +48,8 @@ ui.start('#firebaseui-auth-container', uiConfig);
   </div>
 
 </form> -->
+<h1>Welcome! Please sign in</h1>
+<button @click="signInRedirect">Login</button>
   
 </template>
 

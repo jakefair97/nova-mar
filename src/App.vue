@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { signInWithRedirect, signInWithEmailAndPassword} from "firebase/auth"
 
-import { useCurrentUser, useFirebaseAuth } from 'vuefire'
+import { useCurrentUser } from 'vuefire'
 
 const user = useCurrentUser();
 
