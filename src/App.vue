@@ -1,10 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { signInWithRedirect, signInWithEmailAndPassword} from "firebase/auth"
 
-import { firebaseApp } from './firebase';
-import { getAuth } from 'firebase/auth'
+import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 
-const user = getAuth();
+const user = useCurrentUser();
+
+console.log(user);
 
 </script>
 
