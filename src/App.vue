@@ -1,12 +1,33 @@
+<script>
+  export const app = initializeApp(firebaseConfig);
+  // import auth from './views/SignInView.vue'
+</script>
+
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import { signInWithRedirect, signInWithEmailAndPassword} from "firebase/auth"
+import { initializeApp } from 'firebase/app';
+// import { signInWithRedirect, signInWithEmailAndPassword} from "firebase/auth"
+import { firebaseConfig } from './firebase';
 
-import { useCurrentUser } from 'vuefire'
+import { useCurrentUser } from 'vuefire';
+import { signOut, getAuth } from 'firebase/auth';
 
 const user = useCurrentUser();
+const auth = getAuth();
 
-console.log(user);
+
+
+// function signUserOut(auth) {
+//   signOut(auth).then(() => {
+//     console.log("sign out good")
+//   }).catch((error) => {
+//     console.error(error)
+//   })
+// }
+
+// const app = initializeApp(firebaseConfig);
+
+// console.log(user);
 
 </script>
 
@@ -24,6 +45,8 @@ console.log(user);
       <RouterLink to="/maintenance">Maintenance Request</RouterLink>
   
       <RouterLink to="/contact">Contact</RouterLink>
+
+      <button @click="signOut(auth)">Sign Out</button>
     </nav>
 
   </div>

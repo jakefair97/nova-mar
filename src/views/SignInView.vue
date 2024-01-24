@@ -1,27 +1,49 @@
 <script>
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, EmailAuthProvider } from 'firebase/auth';
 export const googleAuthProvider = new GoogleAuthProvider();
+export const emailAuthProvider = new EmailAuthProvider();
 
 </script>
 
 <script setup>
 // import Firebase functionality to handle the sign in event
 import { firebaseApp } from '../firebase';
-import { EmailAuthProvider, signInWithRedirect, getRedirectResult } from 'firebase/auth';
-import { onMounted } from 'vue';
+import { signInWithPopup, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+// import { onMounted } from 'vue';
 
 
 import { useFirebaseAuth } from 'vuefire'
 
 const auth = useFirebaseAuth()
+const auth2 = getAuth();
 
 // const error = undefined
 function signInRedirect() {
-  signInWithRedirect(auth, googleAuthProvider).catch((reason) => {
+  signInWithPopup(auth, googleAuthProvider)
+  .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+    }).catch((reason) => {
     console.error('Failed signInRedirect', reason)
     // error.value = reason
   })
 }
+
+// function emailSignIn() {
+//   signInWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//       const user = userCredential.user;
+//     })
+//     .catch((error) => {
+//       const errorCode = error.code;
+//     })
+  
+// }
 
 // onMounted(() => {
 //   getRedirectResult(auth).catch((reason) => {
@@ -29,7 +51,6 @@ function signInRedirect() {
 //     // error.value = reason
 //   })
 // });
-
 </script>
 
 <template>
@@ -44,7 +65,7 @@ function signInRedirect() {
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
         
-    <button type="submit" @click="signIn(email, psw)">Login</button>
+    <button type="submit" @click="signInWithEmailAndPassword(auth, email, psw)">Login</button>
   </div>
 
 </form> -->
