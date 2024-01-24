@@ -1,10 +1,10 @@
 <script>
   export const app = initializeApp(firebaseConfig);
-  // import auth from './views/SignInView.vue'
 </script>
 
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import SignIn from './components/SignIn.vue'
 import { initializeApp } from 'firebase/app';
 // import { signInWithRedirect, signInWithEmailAndPassword} from "firebase/auth"
 import { firebaseConfig } from './firebase';
@@ -15,25 +15,15 @@ import { signOut, getAuth } from 'firebase/auth';
 const user = useCurrentUser();
 const auth = getAuth();
 
-
-
-// function signUserOut(auth) {
-//   signOut(auth).then(() => {
-//     console.log("sign out good")
-//   }).catch((error) => {
-//     console.error(error)
-//   })
-// }
-
-// const app = initializeApp(firebaseConfig);
-
-// console.log(user);
-
 </script>
 
 <template>
   <!-- implement v-if to only show the buttons if the user is logged in -->
-  <RouterView v-if="this.$route.path=='/'"/>
+  <div v-if="!user">
+    <SignIn/>
+  </div>
+  
+  <h1 v-if="user && this.$route.path=='/'" >Hello, {{ user.displayName.split(" ")[0] }}!</h1>
   <div v-if="user" class="buttons" >
     <nav>
       <RouterLink to="/">Home</RouterLink>
@@ -55,15 +45,9 @@ const auth = getAuth();
 </template>
 
 <style scoped>
-/* header {
-  line-height: 1.5;
-  max-height: 100vh;
+h1 {
+  text-align: center;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}*/
 
 nav {
   width: 100%;
@@ -71,6 +55,14 @@ nav {
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+
+button {
+  background-color: transparent;
+  border-width: 0;
+  font-size: 25px;
+  color: hsla(160, 100%, 37%, 1);
+  padding: 3px;
 }
 
 nav a.router-link-exact-active {
@@ -84,7 +76,6 @@ nav a.router-link-exact-active:hover {
 nav a {
   display: inline-block;
   padding: 0 1rem;
-  /* border-left: 1px solid var(--color-border); */
 }
 
 nav a:first-of-type {

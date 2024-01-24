@@ -38,8 +38,11 @@ function signInRedirect() {
 
 <template>
 <!-- sign in using google account; will add email and password later if necessary -->
-<h1>Welcome! Please sign in</h1>
-<button @click="signInRedirect">Login</button>
+<div class="container">
+  <h1>Welcome! Please sign in</h1>
+  <button @click="signInRedirect">Login</button>
+</div>
+
   
 </template>
 
