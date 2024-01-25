@@ -39,7 +39,7 @@ function signInRedirect() {
 <template>
 <!-- sign in using google account; will add email and password later if necessary -->
 <div class="container">
-  <h1>Welcome! Please sign in</h1>
+  <h1>Welcome! Please login</h1>
   <button @click="signInRedirect">Login</button>
 </div>
 
@@ -64,6 +64,11 @@ body {
   flex-direction: column;
   height: 100vh;
 }
+
+.container > * {
+  margin: 10px;
+}
+
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
