@@ -1,16 +1,8 @@
-<script>
-  export const app = initializeApp(firebaseConfig);
-</script>
-
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import SignIn from './components/SignIn.vue'
-import LoggedIn from './components/LoggedIn.vue'
-import { initializeApp } from 'firebase/app';
-// import { signInWithRedirect, signInWithEmailAndPassword} from "firebase/auth"
-import { firebaseConfig } from './firebase';
+import { RouterLink } from 'vue-router'
 
 import { useCurrentUser, useFirebaseAuth } from 'vuefire';
+import { signOut } from 'firebase/auth';
 
 const user = useCurrentUser();
 // const auth = getAuth();
@@ -21,17 +13,9 @@ console.log(user.displayName);
 </script>
 
 <template>
-  <!-- implement v-if to only show the buttons if the user is logged in -->
-  <div v-if="!user">
-    <SignIn/>
-  </div>
 
-  <div v-else>
-    <LoggedIn/>
-  </div>
-  
-  <!-- <h1 v-if="user">Hello, {{ user.displayName }}!</h1>
-  <div v-if="user" class="buttons" >
+<h1>Hello, {{ user.displayName }}!</h1>
+  <div class="buttons">
     <nav>
       <RouterLink to="/">Home</RouterLink>
 
@@ -46,9 +30,8 @@ console.log(user.displayName);
       <button @click="signOut(auth2)">Sign Out</button>
     </nav>
 
-  </div> -->
-  <RouterView/>
-  
+  </div>
+
 </template>
 
 <style scoped>

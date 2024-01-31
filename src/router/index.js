@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+const Home = { template: '<div>Home<div/>' }
 // import LoggedInView from '../views/LoggedInView.vue'
 
 const router = createRouter({
@@ -7,7 +8,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      // component: ,
+      // component: Home
     },
     {
       // path: '/about',
