@@ -1,5 +1,12 @@
 <script setup>
   // import the necessary software to integrate stripe
+
+  let rent = 0;
+
+  // if rent hasn't been paid:
+    // display rent cost and a button to pay rent
+  // else:
+    // diplay $0
 </script>
 
 <template>
@@ -10,6 +17,7 @@
   if they haven't paid, the amount should equal the cost of rent for that property
   also would be cool to send an invoice on the first of the month to remind them that rent is due-->
  <h1>Pay up!</h1>
+ <a href="https://buy.stripe.com/aEUaID4y5ewHctGdQQ" target="_blank">Pay</a>
 </template>
 
 <style scoped>
