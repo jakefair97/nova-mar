@@ -30,23 +30,6 @@ console.log(user.displayName);
     <LoggedIn/>
   </div>
   
-  <!-- <h1 v-if="user">Hello, {{ user.displayName }}!</h1>
-  <div v-if="user" class="buttons" >
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-
-      <RouterLink to ='/pay'>Pay Rent</RouterLink>
-  
-      <RouterLink to="/lease">View Lease</RouterLink>
-  
-      <RouterLink to="/maintenance">Maintenance Request</RouterLink>
-  
-      <RouterLink to="/contact">Contact</RouterLink>
-
-      <button @click="signOut(auth2)">Sign Out</button>
-    </nav>
-
-  </div> -->
   <RouterView/>
   
 </template>
@@ -73,13 +56,13 @@ button {
   padding: 3px;
 }
 
-nav a.router-link-exact-active {
+/* nav a.router-link-exact-active {
   color: var(--color-text);
-}
+} */
 
-nav a.router-link-exact-active:hover {
+/* nav a.router-link-exact-active:hover {
   background-color: transparent;
-}
+} */
 
 nav a {
   display: inline-block;

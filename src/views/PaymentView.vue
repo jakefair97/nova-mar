@@ -16,10 +16,25 @@
   the tenant also needs a check to see if they paid rent; if they did, the amount owed shouled be $0
   if they haven't paid, the amount should equal the cost of rent for that property
   also would be cool to send an invoice on the first of the month to remind them that rent is due-->
- <h1>Pay up!</h1>
- <a href="https://buy.stripe.com/aEUaID4y5ewHctGdQQ" target="_blank">Pay</a>
+  <div class="pay-container">
+    <h1>Pay up!</h1>
+    <a href="https://buy.stripe.com/aEUaID4y5ewHctGdQQ" target="_blank">Pay</a>
+  </div>
 </template>
 
 <style scoped>
   /* stripe SDK may have it's own styling guide so CSS may or may not be needed */
+  .pay-container {
+    display: flex;
+    flex-direction: column;
+  }
+  h1 {
+    color: white;
+    text-align: center;
+  }
+  a {
+    text-align: center;
+    font-size: 30px;
+    color: lightblue;
+  }
 </style>

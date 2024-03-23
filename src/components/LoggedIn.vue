@@ -27,7 +27,9 @@ console.log(user.displayName);
   
       <RouterLink to="/contact">Contact</RouterLink>
 
-      <button @click="signOut(auth2)">Sign Out</button>
+      <!-- <button @click="signOut(auth2)">Sign Out</button> -->
+
+      <RouterLink to="/" @click="signOut(auth2)">Sign Out</RouterLink>
     </nav>
 
   </div>
@@ -56,9 +58,9 @@ button {
   padding: 3px;
 }
 
-nav a.router-link-exact-active {
+/* nav a.router-link-exact-active {
   color: var(--color-text);
-}
+} */
 
 nav a.router-link-exact-active:hover {
   background-color: transparent;
