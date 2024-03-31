@@ -1,12 +1,12 @@
 <script setup>
-  // import the necessary software to integrate stripe
+// import the necessary software to integrate stripe
 
-  let rent = 0;
+let rent = 0
 
-  // if rent hasn't been paid:
-    // display rent cost and a button to pay rent
-  // else:
-    // diplay $0
+// if rent hasn't been paid:
+// display rent cost and a button to pay rent
+// else:
+// diplay $0
 </script>
 
 <template>
@@ -23,18 +23,18 @@
 </template>
 
 <style scoped>
-  /* stripe SDK may have it's own styling guide so CSS may or may not be needed */
-  .pay-container {
-    display: flex;
-    flex-direction: column;
-  }
-  h1 {
-    color: white;
-    text-align: center;
-  }
-  a {
-    text-align: center;
-    font-size: 30px;
-    color: lightblue;
-  }
+/* stripe SDK may have it's own styling guide so CSS may or may not be needed */
+.pay-container {
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  color: white;
+  text-align: center;
+}
+a {
+  text-align: center;
+  font-size: 30px;
+  color: lightblue;
+}
 </style>

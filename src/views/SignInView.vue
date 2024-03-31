@@ -1,46 +1,42 @@
 <script>
-import { GoogleAuthProvider, EmailAuthProvider } from 'firebase/auth';
-export const googleAuthProvider = new GoogleAuthProvider();
-export const emailAuthProvider = new EmailAuthProvider();
-
+import { GoogleAuthProvider, EmailAuthProvider } from 'firebase/auth'
+export const googleAuthProvider = new GoogleAuthProvider()
+export const emailAuthProvider = new EmailAuthProvider()
 </script>
 
 <script setup>
 // import Firebase functionality to handle the sign in event
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth'
 // import { onMounted } from 'vue';
-
 
 import { useFirebaseAuth } from 'vuefire'
 
 const auth = useFirebaseAuth()
 
-
 // const error = undefined
 function signInRedirect() {
   signInWithPopup(auth, googleAuthProvider)
-  .then((result) => {
+    .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
+      const credential = GoogleAuthProvider.credentialFromResult(result)
+      const token = credential.accessToken
       console.log(token)
       // The signed-in user info.
       // const user = result.user;
       // IdP data available using getAdditionalUserInfo(result)
       // ...
-    }).catch((reason) => {
-    console.error('Failed signInRedirect', reason)
-    // error.value = reason
-  })
+    })
+    .catch((reason) => {
+      console.error('Failed signInRedirect', reason)
+      // error.value = reason
+    })
 }
-
 </script>
 
 <template>
-<!-- sign in using google account; will add email and password later if necessary -->
-<h1>Welcome! Please sign in</h1>
-<button @click="signInRedirect">Login</button>
-  
+  <!-- sign in using google account; will add email and password later if necessary -->
+  <h1>Welcome! Please sign in</h1>
+  <button @click="signInRedirect">Login</button>
 </template>
 
 <style scoped>
@@ -53,7 +49,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.container{
+.container {
   padding: 16px;
   display: flex;
   align-items: flex-start;
@@ -61,7 +57,8 @@ body {
   flex-direction: column;
   height: 100vh;
 }
-input[type=text], input[type=password] {
+input[type='text'],
+input[type='password'] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -80,5 +77,4 @@ h1 {
 button {
   align-self: center;
 }
-
 </style>
