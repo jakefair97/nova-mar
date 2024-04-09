@@ -23,5 +23,8 @@
     },
     "singleProjectMode": true
   },
-  "extensions": {}
+  "extensions": {},
+  "storage": {
+    "rules": "storage.rules"
+  }
 }
