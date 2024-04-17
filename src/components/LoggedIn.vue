@@ -44,14 +44,6 @@ nav {
   flex-direction: column;
 }
 
-button {
-  background-color: transparent;
-  border-width: 0;
-  font-size: 25px;
-  color: hsla(160, 100%, 37%, 1);
-  padding: 3px;
-}
-
 nav a {
   display: inline-block;
   padding: 0 1rem;

@@ -24,7 +24,7 @@ const { url } = useStorageFile(leaseRef);
     <div>
         <!-- {{ myLease.lease }} -->
         <!-- {{ lease }} -->
-        <iframe v-if="url" :src="url" width="100%" height="500" />
+        <iframe v-if="url" :src="url" type="application/pdf" width="100%" height="500" />
     </div>
 
   </div>
