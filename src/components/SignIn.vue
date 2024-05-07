@@ -6,14 +6,16 @@ export const emailAuthProvider = new EmailAuthProvider()
 
 <script setup>
 // import Firebase functionality to handle the sign in event
-import { signInWithPopup } from 'firebase/auth'
+import { signInWithPopup, signInWithEmailAndPassword, getAuth } from 'firebase/auth'
+import { ref } from 'vue'
 // import { onMounted } from 'vue';
 
 import { useFirebaseAuth } from 'vuefire'
 
 const auth = useFirebaseAuth()
+const auth2 = getAuth();
 
-// const error = undefined
+// sign in with google
 function signInRedirect() {
   signInWithPopup(auth, googleAuthProvider)
     .then((result) => {
@@ -31,6 +33,21 @@ function signInRedirect() {
       // error.value = reason
     })
 }
+let email = '';
+let password = '';
+// sign in with email
+function signInPW(email, password) {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    })
+    console.log(email);
+}
+
 </script>
 
 <template>
@@ -38,7 +55,15 @@ function signInRedirect() {
   <div class="container">
     <h1>Welcome! Please login</h1>
     <button @click="signInRedirect">Login</button>
+  <form @submit.prevent="signInPW(email, password)">
+    <input v-model="email" type="email" placeholder="Email" required>
+    <input v-model="password" type="password" placeholder="Password" required>
+    <button @submit="signInPW(email, password)">Sign in</button>
+    
+  </form>   
   </div>
+
+ 
 </template>
 
 <style scoped>

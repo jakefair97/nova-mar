@@ -9,7 +9,6 @@ import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 const user = useCurrentUser()
 const auth2 = useFirebaseAuth()
 
-console.log(user.displayName)
 </script>
 
 <template>
