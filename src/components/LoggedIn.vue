@@ -41,8 +41,12 @@ h1 {
   color: white;
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
 nav {
-  width: 100%;
   font-size: 25px;
   text-align: center;
   display: flex;

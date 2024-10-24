@@ -79,7 +79,7 @@ body {
 .container {
   padding: 16px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
   height: 100vh;
@@ -89,14 +89,19 @@ body {
   margin: 10px;
 }
 
-input[type='text'],
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* input[type='text'],
 input[type='password'] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   box-sizing: border-box;
-}
+} */
 
 h1 {
   color: white;
